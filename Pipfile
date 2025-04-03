@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+requests = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
+pillow = "*"
+pyyaml = "*"
+coreapi = "*"
+python-decouple = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

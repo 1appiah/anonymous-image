@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -135,6 +136,17 @@ STATIC_URL = 'static/'
 
 MEDIAL_URL = 'media/'
 MEDIAL_ROOT = (BASE_DIR/'media')
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Where to collect static files during `collectstatic`
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Turn on WhiteNoise compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

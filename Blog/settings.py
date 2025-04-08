@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'users',
     'imaging',
-    'whitnoise',
+    'whitenoise',
     
 ]
 

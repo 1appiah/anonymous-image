@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'users',
     'imaging',
     'whitenoise',
+    'cloudinary',
+    'cloudinary_storage',
     
 ]
 
@@ -213,3 +215,12 @@ CSRF_TRUSTED_ORIGINS = []
 CSRF_ALLOWED_ORIGINS = []
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

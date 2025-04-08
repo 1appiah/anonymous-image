@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'users',
-    'imaging'
+    'imaging',
     'whitnoise',
     
 ]

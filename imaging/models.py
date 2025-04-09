@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 
 
@@ -10,7 +10,7 @@ User = get_user_model()
 
 class Message(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField( upload_to='imgs/',blank=False,null=True)
+    image = CloudinaryField('image', blank=False, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 

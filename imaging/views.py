@@ -9,6 +9,7 @@ from rest_framework import status
 from rest_framework import parsers
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
+from cloudinary.uploader import upload
 # Create your views here.
 
 User = get_user_model()
@@ -24,7 +25,14 @@ class CreateImages(CreateAPIView):
     def perform_create(self,serializer):
         pk = self.kwargs.get('pk')
         user = User.objects.get(pk=pk)
-        serializer.save(owner=user)
+        uploaded_file = self.request.data.get('image')
+        if uploaded_file:
+            # Upload to Cloudinary
+            upload_result = upload(uploaded_file)
+            # Save the public_id to the image field
+            serializer.save(owner=user, image=upload_result['public_id'])
+        else:
+            serializer.save(owner=user)
 
 class Boss(APIView):
     permission_classes = [AllowAny]

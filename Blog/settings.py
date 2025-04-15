@@ -137,8 +137,6 @@ AUTH_USER_MODEL = "users.NewUser"
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = (BASE_DIR/'media')
 
 
 STATICFILES_DIRS = [

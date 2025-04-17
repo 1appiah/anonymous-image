@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000','https://anonymous-image-react.onrender.com','http://localhost:5173','http://localhost:5173/']
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000','https://anonymous-image-react.onrender.com','http://localhost:5173','http://localhost:5173']
 
 ROOT_URLCONF = 'Blog.urls'
 
@@ -137,6 +137,7 @@ AUTH_USER_MODEL = "users.NewUser"
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 STATICFILES_DIRS = [

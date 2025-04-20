@@ -10,6 +10,8 @@ from rest_framework import parsers
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
 from cloudinary.uploader import upload
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 User = get_user_model()
@@ -59,17 +61,17 @@ class ViewImage(ListAPIView):
         user = self.request.user
         return Message.objects.filter(owner=user).order_by('-timestamp')
     
-class Dashboard(APIView):
-    permission_classes = [AllowAny]
 
-    def get(self,request):
-        if request.user.is_authenticated:
-            pk = request.user.id
-            name = request.user.username
-        else:
-            pk = "no"
-            name = 'no'
-        return Response({'id':pk,'name':name})
+@method_decorator(cache_page(60 * 5), name='dispatch')  # Cache for 5 minutes
+class Dashboard(APIView):
+    permission_classes = [IsAuthenticated]
+
+    
+    def get(self, request):
+        return Response({
+            'id': request.user.id,
+            'name': request.user.username
+        })
             
 ## image can be deleted by users
 

@@ -65,9 +65,11 @@ class Dashboard(APIView):
     def get(self,request):
         if request.user.is_authenticated:
             pk = request.user.id
+            name = request.user.username
         else:
             pk = "no"
-        return Response({'id':pk})
+            name = 'no'
+        return Response({'id':pk,'name':name})
             
 ## image can be deleted by users
 

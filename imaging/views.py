@@ -78,5 +78,6 @@ class Dashboard(APIView):
 @api_view(['GET'])
 def delete_image(request,pk):
     mess = Message.objects.get(pk=pk)
+    mess.image.delete(save=False) 
     mess.delete()
     return Response('success',status=status.HTTP_202_ACCEPTED)

@@ -65,7 +65,7 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000','https://anonimage-frontend.onrender.com','https://anon-image-frontend.vercel.app','https://anonymous-image-react.onrender.com','http://localhost:5173','http://localhost:5173']
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000','https://anonimage-frontend.onrender.com','https://anon-image-frontend.vercel.app','https://anonymous-image-react.onrender.com','https://anonimage-frontend-production.up.railway.app','http://localhost:5173','http://localhost:5173']
 
 ROOT_URLCONF = 'Blog.urls'
 

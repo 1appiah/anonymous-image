@@ -62,7 +62,7 @@ class ViewImage(ListAPIView):
         return Message.objects.filter(owner=user).order_by('-timestamp')
     
 
-@method_decorator(cache_page(60 * 5), name='dispatch')  # Cache for 5 minutes
+##@method_decorator(cache_page(60 * 5), name='dispatch')  # Cache for 5 minutes
 class Dashboard(APIView):
     permission_classes = [IsAuthenticated]
 
